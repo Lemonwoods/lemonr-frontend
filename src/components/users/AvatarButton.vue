@@ -30,7 +30,7 @@ export default {
       })
     },
     toUserInfoPage(){
-      this.$router.push(`/users/info/${this.userId}`)
+      return this.$router.push(`/users/info/${this.userId}`)
     }
   },
   watch:{

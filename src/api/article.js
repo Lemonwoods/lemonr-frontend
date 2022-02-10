@@ -144,6 +144,17 @@ export function getUserCommentedArticles(userId, pageParam) {
     })
 }
 
+export function getUserArticles(userId, articleType, pageParam) {
+    return request({
+        url: `/articles/users/${userId}/${articleType}`,
+        method: 'post',
+        data:{
+            page:pageParam.page,
+            pageSize:pageParam.pageSize
+        }
+    })
+}
+
 export function deleteArticle(articleId) {
     return request({
         url: `/articles/${articleId}/remove`,

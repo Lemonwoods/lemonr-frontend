@@ -1,11 +1,11 @@
 <template>
   <div class="le-user-info-card">
     <el-row>
-      <el-col span="5" offset="2">
+      <el-col :span="5" :offset="2">
         <avatar-button :user-id="userId" class="le-user-info-avatar"></avatar-button>
       </el-col>
 
-      <el-col span="17">
+      <el-col :span="17">
 
         <div class="le-user-info-text">
           <div class="le-user-info-nickname">
@@ -33,7 +33,8 @@ export default {
   props:{
     userId:{
       type:String,
-      required:true
+      required:true,
+      default:'-1'
     }
   },
   data(){
@@ -48,7 +49,7 @@ export default {
         this.nickname = data.data.nickname
         this.description = data.data.userDescription
 
-        if(this.description.length>20){
+        if(this.description!==null&&this.description.length>20){
           this.description = this.description.slice(0,20)+'...'
         }
       })
@@ -60,7 +61,9 @@ export default {
     }
   },
   mounted() {
-    this.getUserInfo()
+    if(this.userId!=='-1'&&this.userId!==undefined){
+      this.getUserInfo()
+    }
   }
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
   <div>
-      <div>
-        <user-info-table :user-id="userId"></user-info-table>
-      </div>
-      <div>
-        <user-article-list-menu :user-id="userId"/>
-      </div>
+    <div>
+      <user-info-table :user-id="userId"></user-info-table>
+    </div>
+    <div>
+      <user-article-list-menu :user-id="userId"/>
+    </div>
   </div>
 </template>
 
@@ -21,6 +21,13 @@ export default {
   data(){
     return {
       userId : this.$route.params.id
+    }
+  },
+  watch:{
+    '$route' (to, from) {
+      console.log(to)
+      console.log(from)
+      this.$router.go(0)
     }
   }
 }

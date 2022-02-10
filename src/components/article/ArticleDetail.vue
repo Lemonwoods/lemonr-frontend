@@ -5,11 +5,11 @@
     </div>
 
     <el-row class="le-article-detail-user-count-bar">
-      <el-col class="le-article-info-label" span="12">
-        <user-info-card :user-id="article.authorId"></user-info-card>
+      <el-col class="le-article-info-label" :span="12">
+        <user-info-card :user-id="String(article.authorId)"></user-info-card>
       </el-col>
 
-      <el-col class="le-article-info-label le-article-detail-count-info-bar" span="12">
+      <el-col class="le-article-info-label le-article-detail-count-info-bar" :span="12">
         <count-info-bar :article-id="articleId"></count-info-bar>
       </el-col>
     </el-row>

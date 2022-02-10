@@ -1,11 +1,11 @@
 <template>
   <div class="le-comment-card">
     <el-row>
-      <el-col span="3" >
-        <avatar-button :user-id="comment.fromUid"></avatar-button>
+      <el-col :span="3" >
+        <avatar-button :user-id="String(comment.fromUid)"></avatar-button>
       </el-col>
 
-      <el-col span="17">
+      <el-col :span="17">
         <div class="le-comment-card-user-nickname">
           {{commentUserNickName}}
         </div>

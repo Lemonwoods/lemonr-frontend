@@ -1,11 +1,11 @@
 <template>
   <div class="le-user-info-table">
     <el-row>
-      <el-col span="5">
+      <el-col :span="5">
         <el-image :src="userInfo.avatar"></el-image>
       </el-col>
 
-      <el-col span="15" offset="1">
+      <el-col :span="15" :offset= "1">
         <div>
           <span class="le-user-info-table-nickname">
             {{userInfo.nickname}}
@@ -47,7 +47,9 @@ export default {
   },
   data(){
     return {
-      userInfo:Object,
+      userInfo: {
+        avatar:require('../../assets/defaultAvatar.png')
+      },
     }
   },
   methods:{

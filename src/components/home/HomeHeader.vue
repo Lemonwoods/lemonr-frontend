@@ -2,7 +2,7 @@
   <div class="le-home-header">
     <el-row>
       <!--    导航标签-->
-      <el-col span=23>
+      <el-col :span=23>
         <el-menu :default-active="activeIndex"  mode="horizontal" @select="handleSelect">
           <el-menu-item index="1">首页</el-menu-item>
           <el-submenu index="2">
@@ -24,7 +24,7 @@
 
 <!--      输入框-->
 
-      <el-col span=1>
+      <el-col :span=1>
           <avatar-button v-if="loginState" :user-id="userId"></avatar-button>
         <login-and-register-button v-else></login-and-register-button>
       </el-col>

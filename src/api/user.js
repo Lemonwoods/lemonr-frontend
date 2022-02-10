@@ -49,7 +49,7 @@ export function getFollowList(id, pageParam) {
         method: 'post',
         data:{
             page:pageParam.page,
-            pageSize:pageParam.page
+            pageSize:pageParam.pageSize
         }
     })
 }

@@ -1,21 +1,21 @@
 <template>
   <div>
     <el-row>
-      <el-col span="4">
+      <el-col :span="4">
         <el-button round @click="openFollowList">关注</el-button>
       </el-col>
-      <el-col span="4">
+      <el-col :span="4">
         <el-button round @click="openFanList">粉丝</el-button>
       </el-col>
     </el-row>
 
-    <el-dialog :visible.sync="followDialogVisible" class="le-user-list-dialog">
+    <el-dialog :visible.sync="followDialogVisible" class="le-user-list-dialog" v-if="followDialogVisible">
       <div class="le-scroll-list" v-infinite-scroll="loadFollow">
         <user-info-card v-for="userId in followList" :key="userId" :user-id="userId"></user-info-card>
       </div>
     </el-dialog>
 
-    <el-dialog :visible.sync="fanDialogVisible" class="le-user-list-dialog">
+    <el-dialog :visible.sync="fanDialogVisible" class="le-user-list-dialog" v-if="fanDialogVisible">
       <div class="le-scroll-list" v-infinite-scroll="loadFan">
         <user-info-card v-for="userId in fanList" :key="userId" :user-id="userId"></user-info-card>
       </div>
@@ -71,14 +71,14 @@ export default {
         }
 
         for(let i = 0;i<data.data.length;i++){
-          this.followList.push(data.data[i])
+          this.followList.push(String(data.data[i]))
         }
       }).catch(()=>{
         this.followPageParam.page-=1
       })
     },
     loadFan(){
-      this.followPageParam.page+=1;
+      this.fanPageParam.page+=1;
       getFanList(this.userId, this.fanPageParam).then(data=>{
         if(data.data.length ===0){
           this.fanPageParam.page-=1
@@ -86,12 +86,16 @@ export default {
         }
 
         for(let i = 0;i<data.data.length;i++){
-          this.fanList.push(data.data[i])
+          this.fanList.push(String(data.data[i]))
         }
       }).catch(()=>{
         this.fanPageParam.page-=1;
       })
     }
+  },
+  mounted() {
+    this.fanPageParam.page = 0;
+    this.followPageParam.page = 0;
   }
 }
 </script>

@@ -54,5 +54,7 @@ export default {
 </script>
 
 <style scoped>
-
+.le-comment-scroll-page{
+  overflow: auto;
+}
 </style>
