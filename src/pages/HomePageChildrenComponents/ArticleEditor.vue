@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h1>Article Editor</h1>
+    <mark-down-editor></mark-down-editor>
   </div>
 </template>
 
 <script>
+import MarkDownEditor from "../../components/article/MarkDownEditor";
 export default {
-  name: "ArticleEditor"
+  name: "ArticleEditor",
+  components:{
+    MarkDownEditor,
+  }
 }
 </script>
 

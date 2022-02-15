@@ -71,4 +71,9 @@ export default {
 .le-user-article-scroll-page{
   overflow: auto;
 }
+.le-article-card{
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
 </style>

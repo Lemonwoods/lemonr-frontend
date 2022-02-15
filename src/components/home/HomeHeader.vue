@@ -7,12 +7,19 @@
           <el-menu-item index="1">首页</el-menu-item>
           <el-submenu index="2">
             <template slot="title">分类</template>
-            <el-menu-item index="2-1">按标签</el-menu-item>
-            <el-menu-item index="2-2">按类别</el-menu-item>
+            <el-submenu index="2-1">
+              <template slot="title">按类别</template>
+              <el-menu-item v-for="(category, index) in categories" :key="category.id" :index="'2-1-'+index">{{category.categoryName}}</el-menu-item>
+            </el-submenu>
+            <el-submenu index="2-2">
+              <template slot="title">按标签</template>
+              <el-menu-item v-for="(tag, index) in tags" :key="tag.id" :index="'2-2-'+index">{{tag.tagName}}</el-menu-item>
+            </el-submenu>
           </el-submenu>
           <el-menu-item index="3">热榜</el-menu-item>
           <el-menu-item index="4">消息</el-menu-item>
-          <el-menu-item index="5">
+          <el-menu-item index="5">写文章</el-menu-item>
+          <el-menu-item index="6">
             <el-input
                 placeholder="请输入内容"
                 prefix-icon="el-icon-search"
@@ -37,6 +44,7 @@
 <script>
 import AvatarButton from "../users/AvatarButton";
 import LoginAndRegisterButton from "../LoginAndRegister/LoginAndRegisterButton";
+import {getCategories, getTags} from "../../api/article";
 
 export default {
   name: "HomeHeader",
@@ -50,11 +58,43 @@ export default {
       searchInput:'',
 
       loginState:Boolean,
+
+      categories:[],
+      tags:[]
     }
   },
   methods:{
-    handleSelect(){
-
+    getCategoryList(){
+      getCategories().then(data=>{
+        this.categories = data.data
+      })
+    },
+    getTagList(){
+      getTags().then(data=>{
+        this.tags = data.data
+      })
+    },
+    handleSelect(index){
+      if(index==='1'){
+        this.$router.push('/home/articles')
+        this.activeIndex='1'
+      }
+      if(index==='2'){
+        this.$router.push('/home/articles')
+        this.activeIndex='2'
+      }
+      if(index==='3'){
+        this.$router.push('/home/hotArticles')
+        this.activeIndex='3'
+      }
+      if(index==='4'){
+        this.$router.push('/home/chat')
+        this.activeIndex='4'
+      }
+      if(index==="5"){
+        this.$router.push('/home/articleEditor')
+        this.activeIndex = '5'
+      }
     },
     isLogin(){
       if(this.$store.state.token===''||this.$store.state.token===undefined){
@@ -79,6 +119,9 @@ export default {
     this.$store.dispatch('getUserInfo')
     //每次挂在的时候,判断是显示头像还是显示登陆注册按钮
     this.isLogin()
+
+    this.getCategoryList()
+    this.getTagList()
 
   }
 }

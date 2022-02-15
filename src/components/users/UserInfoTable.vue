@@ -22,7 +22,7 @@
           {{userInfo.userDescription}}
         </div>
 
-        <div>
+        <div class="le-user-info-table-follow-and-fan-button">
           <follow-and-fan-button :user-id="userId"></follow-and-fan-button>
         </div>
 
@@ -56,6 +56,11 @@ export default {
     getUserInfo(){
       getUserInfoById(this.userId).then(data=>{
         this.userInfo = data.data
+
+        if(data.data.avatar==='default'){
+          this.userInfo.avatar = require('../../assets/defaultAvatar.png')
+        }
+
       })
     }
   },
@@ -68,7 +73,7 @@ export default {
 <style scoped>
 .le-user-info-table{
   width: 1000px;
-  height: 300px;
+
 }
 
 
@@ -81,6 +86,9 @@ export default {
   font-size: 15px;
 }
 .le-user-info-table-description{
+  margin-top: 20px;
+}
+.le-user-info-table-follow-and-fan-button{
   margin-top: 20px;
 }
 </style>

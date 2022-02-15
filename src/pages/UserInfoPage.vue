@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <div>
+  <div class="le-user-info-page">
+    <div class="le-user-info-page-user-info-table">
       <user-info-table :user-id="userId"></user-info-table>
     </div>
-    <div>
+    <div class="le-user-info-page-user-article-list-menu">
       <user-article-list-menu :user-id="userId"/>
     </div>
   </div>
@@ -34,5 +34,15 @@ export default {
 </script>
 
 <style scoped>
+.le-user-info-page{
+  width: 900px;
 
+  margin: auto;
+}
+.le-user-info-page-user-info-table{
+
+}
+.le-user-info-page-user-article-list-menu{
+
+}
 </style>

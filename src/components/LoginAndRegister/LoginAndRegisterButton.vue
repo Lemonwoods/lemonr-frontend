@@ -1,10 +1,10 @@
 <template>
   <div class="le-login-and-register-buttons">
     <el-row>
-      <el-col span="12">
+      <el-col :span="12">
         <el-button round @click="register">注册</el-button>
       </el-col>
-      <el-col span="12">
+      <el-col :span="12">
         <el-button round type="primary" @click="login">登陆</el-button>
       </el-col>
     </el-row>

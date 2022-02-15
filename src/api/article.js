@@ -73,7 +73,6 @@ export function publishArticle(article) {
         data:{
             summary:article.summary,
             title:article.title,
-            authorId:article.authorId,
             categoryId:article.categoryId,
             tagIdList:article.tagIdList,
             content:article.content,
@@ -174,3 +173,5 @@ export function getIsLiked(articleId){
         }
     })
 }
+
+

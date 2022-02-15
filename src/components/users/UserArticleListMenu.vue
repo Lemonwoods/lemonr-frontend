@@ -9,7 +9,7 @@
         </el-menu>
       </el-header>
       <el-main>
-        <user-article-scroll-page :user-id="userId" :article-type="articleType"></user-article-scroll-page>
+        <user-article-scroll-page :user-id="userId" :article-type="articleType" class="le-user-article-scroll-page"></user-article-scroll-page>
       </el-main>
     </el-container>
   </div>
@@ -53,5 +53,7 @@ export default {
 </script>
 
 <style scoped>
-
+.le-user-article-scroll-page{
+  margin: auto;
+}
 </style>
