@@ -74,24 +74,34 @@ export default {
         this.tags = data.data
       })
     },
-    handleSelect(index){
-      if(index==='1'){
+    handleSelect(key, keyPath){
+      console.log('key:'+key)
+      console.log('keyPath:'+keyPath)
+
+      if(key==='1'){
         this.$router.push('/home/articles')
         this.activeIndex='1'
       }
-      if(index==='2'){
-        this.$router.push('/home/articles')
+      if(key.substring(0,3)==='2-1'){
+        let number = Number(key.substring(4,5))
+        this.$router.push(`/home/categories/${this.categories[number].id}`)
+        this.activeIndex='2'
+
+      }
+      if(key.substring(0,3)==='2-2'){
+        let number = Number(key.substring(4,5))
+        this.$router.push(`/home/tags/${this.tags[number].id}`)
         this.activeIndex='2'
       }
-      if(index==='3'){
+      if(key==='3'){
         this.$router.push('/home/hotArticles')
         this.activeIndex='3'
       }
-      if(index==='4'){
+      if(key==='4'){
         this.$router.push('/home/chat')
         this.activeIndex='4'
       }
-      if(index==="5"){
+      if(key==="5"){
         this.$router.push('/home/articleEditor')
         this.activeIndex = '5'
       }
