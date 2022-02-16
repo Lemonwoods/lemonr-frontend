@@ -3,21 +3,21 @@
     <el-image :src="avatar" @click="toUserInfoPage">
       <div slot="error">
         <i class="el-icon-picture-outline"></i>
-        加载失败
       </div>
-
     </el-image>
   </div>
 </template>
 
 <script>
-import {getUserInfoById} from "../../api/user";
 export default {
-  name: "AvatarButton",
+  name: "AvatarButtonWithUrl",
   props:{
     userId:{
       type:String,
       required:true
+    },
+    avatarUrl:{
+      type:String,
     }
   },
   data(){
@@ -26,23 +26,11 @@ export default {
     }
   },
   methods:{
-    getAvatarUrl(){
-      console.log('userId:'+this.userId)
-      getUserInfoById(this.userId).then(data=>{
-        if(data.data.avatar==''||data.data.avatar=='default'){
-          return
-        }
-        this.avatar = data.data.avatar
-      })
-    },
     toUserInfoPage(){
       return this.$router.push(`/users/info/${this.userId}`)
     }
   },
   watch:{
-    userId:function (){
-      this.getAvatarUrl()
-    }
   }
 }
 </script>
