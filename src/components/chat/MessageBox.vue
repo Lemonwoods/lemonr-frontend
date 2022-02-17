@@ -1,6 +1,6 @@
 <template>
   <div class="le-message-box">
-    <div v-infinite-scroll="loadMessage" class="le-message-box-scroll">
+    <div @scroll="handleScroll" class="le-message-box-scroll" id="le-message-box-scroll">
       <div v-for="message in messages" :key="message.id">
         <message-bar v-if="message.toUserId==toUserInfo.id" class="le-right-message-bar"
                      :user-id="toUid"
@@ -164,13 +164,26 @@ export default {
         }
 
         for(let i=0;i<data.data.length;i++){
-          this.messages.push(data.data[i])
+          this.messages.unshift(data.data[i])
         }
+      })
+    },
+    handleScroll(e){
+      // 触顶 加载新消息
+      if(e.target.scrollTop<=0){
+        this.loadMessage()
+      }
+    },
+    scrollToBottom() {
+      this.$nextTick(()=>{
+        let div = document.getElementById("le-message-box-scroll")
+        div.scrollTop = div.scrollHeight
       })
     }
   },
   mounted() {
     this.getUserInfo()
+    this.scrollToBottom()
   }
 }
 </script>
