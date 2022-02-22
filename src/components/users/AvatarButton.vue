@@ -27,7 +27,7 @@ export default {
   },
   methods:{
     getAvatarUrl(){
-      console.log('userId:'+this.userId)
+      if(this.userId==''||this.userId==undefined) return
       getUserInfoById(this.userId).then(data=>{
         if(data.data.avatar==''||data.data.avatar=='default'){
           return

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {Message} from 'element-ui'
 import store from '@/store'
-import {getToken, removeToken} from '@/request/token'
+import {getToken, } from '@/request/token'
 
 axios.defaults.baseURL = 'http://localhost:8888'
 
@@ -12,12 +12,11 @@ const service = axios.create({
 
 //request拦截器
 service.interceptors.request.use(config => {
-
-  if (store.state.token) {
+    if (store.state.token) {
     config.headers['Oauth-Token'] = getToken()
-    // config.headers['Authorization'] = getToken()
-  }
-  return config
+    config.headers['Authorization'] = getToken()
+    }
+    return config
 }, error => {
   Promise.reject(error)
 })
@@ -43,8 +42,9 @@ service.interceptors.response.use(
       //2002 账户已存在
       //2003 未登录
         if(res.code!== 2003){
-            removeToken()
-            store.dispatch('fedLogOut')
+            console.log('no log')
+            // removeToken()
+            // store.dispatch('fedLogOut')
         }
       //2004 token不合法
       //2005 账户不存在
@@ -55,7 +55,7 @@ service.interceptors.response.use(
         showClose: true,
         message: res.msg
       })
-      return Promise.reject(res.msg);
+      return Promise.reject(res);
     } else {
       return response.data;
     }

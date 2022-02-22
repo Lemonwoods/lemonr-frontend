@@ -2,7 +2,7 @@
   <div class="le-home-header">
     <el-row>
       <!--    导航标签-->
-      <el-col :span=23>
+      <el-col :span=17>
         <el-menu :default-active="activeIndex"  mode="horizontal" @select="handleSelect">
           <el-menu-item index="1">首页</el-menu-item>
           <el-submenu index="2">
@@ -31,8 +31,10 @@
 
 <!--      输入框-->
 
-      <el-col :span=1>
-          <avatar-button v-if="loginState" :user-id="userId"></avatar-button>
+      <el-col :span=7>
+        <div v-if="loginState" >
+          <user-button-and-logout-button :user-id="userId"></user-button-and-logout-button>
+        </div>
         <login-and-register-button v-else></login-and-register-button>
       </el-col>
 
@@ -42,15 +44,15 @@
 </template>
 
 <script>
-import AvatarButton from "../users/AvatarButton";
 import LoginAndRegisterButton from "../LoginAndRegister/LoginAndRegisterButton";
 import {getCategories, getTags} from "../../api/article";
+import UserButtonAndLogoutButton from "../LoginAndRegister/UserButtonAndLogoutButton";
 
 export default {
   name: "HomeHeader",
   components:{
-    AvatarButton,
-    LoginAndRegisterButton
+    LoginAndRegisterButton,
+    UserButtonAndLogoutButton
   },
   data(){
     return{
@@ -98,7 +100,7 @@ export default {
         this.activeIndex='3'
       }
       if(key==='4'){
-        this.$router.push('/home/chat')
+        this.$router.push('/home/chat/-1')
         this.activeIndex='4'
       }
       if(key==="5"){

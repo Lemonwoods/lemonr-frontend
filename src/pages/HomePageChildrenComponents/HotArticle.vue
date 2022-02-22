@@ -1,8 +1,13 @@
 <template>
   <div>
     <el-row>
-      <el-col>
-        <hot48-hours-card></hot48-hours-card>
+      <el-col :span="12">
+        <div class="le-center">48小时热榜</div>
+        <hot48-hours-card class="le-center" time-type="48"></hot48-hours-card>
+      </el-col>
+      <el-col :span="12">
+        <div class="le-center">10天热榜</div>
+        <hot48-hours-card class="le-center" time-type="10"></hot48-hours-card>
       </el-col>
     </el-row>
   </div>
@@ -19,5 +24,8 @@ export default {
 </script>
 
 <style scoped>
+.le-center{
+  margin: auto;
+}
 
 </style>

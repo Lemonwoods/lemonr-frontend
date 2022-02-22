@@ -26,6 +26,10 @@
           <follow-and-fan-button :user-id="userId"></follow-and-fan-button>
         </div>
 
+        <div>
+          <el-button round @click="chatWithCurrentUser">聊天</el-button>
+        </div>
+
       </el-col>
     </el-row>
   </div>
@@ -62,6 +66,9 @@ export default {
         }
 
       })
+    },
+    chatWithCurrentUser(){
+      this.$router.push(`/home/chat/${this.userId}`)
     }
   },
   mounted() {

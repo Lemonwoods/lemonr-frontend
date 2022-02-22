@@ -174,4 +174,16 @@ export function getIsLiked(articleId){
     })
 }
 
+export function get48HoursHot(){
+    return request({
+        url:`/articles/hot/48hours`,
+        method:'get',
+    })
+}
+export function get10DaysHot(){
+    return request({
+        url:`/articles/hot/10days`,
+        method:'get',
+    })
+}
 

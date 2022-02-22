@@ -26,7 +26,7 @@ export default {
 <style scoped>
 .le-article-title-card{
   height: 50px;
-  width: 300px;
+  width: 480px;
 
   box-shadow: 7px 7px 20px #d0d0d0;
   border-radius: 25px;

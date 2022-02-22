@@ -1,8 +1,6 @@
-
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-// import ArticleList from "../pages/HomePageChildrenComponents/ArticleList";
 import ArticleEditor from "../pages/HomePageChildrenComponents/ArticleEditor";
 import Categories from "../pages/HomePageChildrenComponents/Categories";
 import Tags from "../pages/HomePageChildrenComponents/Tags";
@@ -13,6 +11,7 @@ import ArticleDetailPage from "../pages/ArticleDetailPage";
 import ArticleScrollPage from "../pages/HomePageChildrenComponents/ArticleScrollPage";
 import Router from 'vue-router'
 import Vue from "vue";
+
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 const originalPush = Router.prototype.push
@@ -54,7 +53,7 @@ export default new Router({
                     component:HotArticle
                 },
                 {
-                    path:'chat',
+                    path:'chat/:leftUserId',
                     component:Chat
                 }
             ]

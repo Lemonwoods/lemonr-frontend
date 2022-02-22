@@ -14,3 +14,17 @@ export function getChatRecords(fromUserId, pageParam) {
         }
     })
 }
+
+export function getServerIP(){
+    return 'localhost:8888'
+}
+
+export function getContacts(){
+    return request({
+        url: `/chat/contacts`,
+        method: 'get',
+        headers:{
+            'Authorization':getToken()
+        },
+    })
+}

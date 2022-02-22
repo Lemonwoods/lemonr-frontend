@@ -81,7 +81,6 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         logout(state.token).then(data => {
           if(data.success){
-
             commit('SET_TOKEN', '')
             commit('SET_ACCOUNT', '')
             commit('SET_NAME', '')
