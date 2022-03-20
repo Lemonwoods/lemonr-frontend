@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Tags</h1>
+    <h1 class="le_title">当前的标签为:{{}}</h1>
     <article-scroll-page :query-condition="{tagId:this.$route.params.id}"></article-scroll-page>
   </div>
 </template>
@@ -11,6 +11,11 @@ export default {
   name: "Tags",
   components:{
     ArticleScrollPage
+  },
+  data(){
+    return {
+      tagName:this.$route.params.name
+    }
   },
   watch:{
     '$route' (to, from) {
@@ -23,5 +28,8 @@ export default {
 </script>
 
 <style scoped>
-
+.le_title{
+  width: 300px;
+  margin: auto;
+}
 </style>

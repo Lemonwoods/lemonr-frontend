@@ -22,12 +22,21 @@ export default {
   },
   data(){
     return {
-      avatar: require('../../assets/defaultAvatar.png')
+      avatarDefault: require('../../assets/defaultAvatar.png')
     }
   },
   methods:{
     toUserInfoPage(){
       return this.$router.push(`/users/info/${this.userId}`)
+    }
+  },
+  computed:{
+    avatar(){
+      if(this.avatarUrl=="default"){
+        return require('../../assets/defaultAvatar.png')
+      }else{
+        return this.avatarUrl
+      }
     }
   },
   watch:{

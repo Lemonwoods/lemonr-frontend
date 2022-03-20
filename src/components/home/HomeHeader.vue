@@ -31,7 +31,7 @@
 
 <!--      输入框-->
 
-      <el-col :span=7>
+      <el-col :span=7 :offset="2">
         <div v-if="loginState" >
           <user-button-and-logout-button :user-id="userId"></user-button-and-logout-button>
         </div>
@@ -86,13 +86,13 @@ export default {
       }
       if(key.substring(0,3)==='2-1'){
         let number = Number(key.substring(4,5))
-        this.$router.push(`/home/categories/${this.categories[number].id}`)
+        this.$router.push(`/home/categories/${this.categories[number].id}/${this.categories[number].categoryName}`)
         this.activeIndex='2'
 
       }
       if(key.substring(0,3)==='2-2'){
         let number = Number(key.substring(4,5))
-        this.$router.push(`/home/tags/${this.tags[number].id}`)
+        this.$router.push(`/home/tags/${this.tags[number].id}/${this.tags[number].tagName}`)
         this.activeIndex='2'
       }
       if(key==='3'){

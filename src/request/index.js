@@ -53,7 +53,7 @@ service.interceptors.response.use(
       Message({
         type: 'warning',
         showClose: true,
-        message: res.msg
+        message: '加载中...'
       })
       return Promise.reject(res);
     } else {

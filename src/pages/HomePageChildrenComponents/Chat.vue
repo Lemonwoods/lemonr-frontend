@@ -2,7 +2,7 @@
   <div>
     <el-row>
       <el-col :span="7">
-        <contact-box class="le-center"></contact-box>
+        <contact-box class="le-center" :cur-chat-user="leftUserId"></contact-box>
       </el-col>
       <el-col :span="17">
         <message-box v-if="leftUserId!='-1'" class="le-center" :leftUid="leftUserId" :rightUid="this.$store.state.id"></message-box>

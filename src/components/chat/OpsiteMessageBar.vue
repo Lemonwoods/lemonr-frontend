@@ -53,8 +53,7 @@ export default {
 .le-message-bar{
   width: 800px;
 
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 10px
 }
 .le-message-bar-info{
   float: left;

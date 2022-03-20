@@ -94,6 +94,7 @@ export default {
 }
 .le-user-info-table-description{
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .le-user-info-table-follow-and-fan-button{
   margin-top: 20px;

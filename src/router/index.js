@@ -41,11 +41,11 @@ export default new Router({
                     component:ArticleEditor
                 },
                 {
-                    path:'categories/:id',
+                    path:'categories/:id/:name',
                     component:Categories
                 },
                 {
-                    path:'tags/:id',
+                    path:'tags/:id/:name',
                     component:Tags
                 },
                 {

@@ -7,14 +7,23 @@
 <script>
 import {getContacts} from "../../api/chat";
 import ContactCard from "./ContactCard";
+import {getUserInfoById} from "../../api/user";
+
 export default {
   name: "ContactBox",
+  props:{
+    curChatUser:{
+      type:Number
+    }
+  },
   components:{
     ContactCard
   },
   data(){
     return {
-      contacts:[]
+      contacts:[],
+
+      curChatUserInfo:Object
     }
   },
   methods:{
@@ -25,6 +34,14 @@ export default {
     }
   },
   mounted() {
+    getUserInfoById(this.curChatUser).then(data=>{
+      this.contacts.unshift({
+        userId:this.curChatUser,
+        avatar:data.data.avatar,
+        nickName:data.data.nickname
+      })
+    })
+
     this.loadContacts()
   }
 }

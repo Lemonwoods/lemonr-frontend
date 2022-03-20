@@ -74,7 +74,7 @@ export default {
   padding: 20px;
   background: white;
   width: 694px;
-  height: 226px;
+  height: 150px;
   margin-top: 20px;
 
   box-shadow: 7px 7px 20px #d0d0d0;
@@ -106,8 +106,9 @@ export default {
 /*文章简介*/
 .le-article-summary{
   margin-top: 9px;
+  padding-top: 10px;
   width: 654px;
-  height: 50px;
+  height: 70px;
   font-size: 15px;
   color: #545454;
 }

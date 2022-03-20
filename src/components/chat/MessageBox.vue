@@ -156,6 +156,11 @@ export default {
       if(val!==null){
         this.initWebSocket()
       }
+    },
+    rightUid(val){
+      getUserInfoById(val).then(data=>{
+        this.rightUserInfo = data.data
+      })
     }
   },
   mounted() {

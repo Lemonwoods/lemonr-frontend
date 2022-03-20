@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>this is article detail page</h1>
     <article-detail :article-id="articleId"></article-detail>
   </div>
 </template>

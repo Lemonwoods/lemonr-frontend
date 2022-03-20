@@ -52,6 +52,7 @@ export default {
 <style scoped>
 .le-message-bar{
   width: 800px;
+  margin:10px
 }
 .le-message-bar-info{
   float: right;
