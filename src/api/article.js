@@ -18,7 +18,8 @@ export function getArticleList(pageParam, query) {
                 tagId:query.tagId,
                 authorId:query.authorId,
                 year:query.year,
-                month:query.month
+                month:query.month,
+                day:query.day
             }
         }
     })
@@ -43,7 +44,8 @@ export function getArticleTotalCount(query) {
             tagId:query.tagId,
             authorId:query.authorId,
             year:query.year,
-            month:query.month
+            month:query.month,
+            day:query.day
         }
     })
 }
@@ -184,6 +186,17 @@ export function get10DaysHot(){
     return request({
         url:`/articles/hot/10days`,
         method:'get',
+    })
+}
+
+export function uploadImage(formData){
+    return request({
+        url:`/upload`,
+        method:'post',
+        headers:{
+            'Content-Type': 'multipart/form-data'
+        },
+        data: formData,
     })
 }
 

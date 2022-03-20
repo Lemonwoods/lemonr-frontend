@@ -8,3 +8,19 @@ export function formatDate(time) {
     let second=now.getSeconds(); //返回日期中的秒数（0到59）
     return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
 }
+export function getYear(time) {
+    let now = new Date(time)
+    let year=now.getFullYear()  //取得4位数的年份
+    return year
+}
+export function getMonth(time) {
+    let now = new Date(time)
+    let month=now.getMonth()+1;  //取得日期中的月份，其中0表示1月，11表示12月
+
+    return month
+}
+export function getDay(time) {
+    let now = new Date(time)
+    let date=now.getDate();      //返回日期月份中的天数（1到31）
+    return date
+}

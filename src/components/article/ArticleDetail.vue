@@ -28,7 +28,7 @@
     </div>
 
     <div>
-      <comment-input></comment-input>
+      <comment-input :prop-article-id="articleId"></comment-input>
     </div>
 
     <div>

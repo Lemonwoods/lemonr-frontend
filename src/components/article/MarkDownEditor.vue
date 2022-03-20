@@ -10,6 +10,8 @@
         :ishljs="true"
         ref="md"
         @save="savaArticle"
+        @imgAdd="$imgAdd"
+        @imgDel="$imgDel"
     />
     <el-dialog :visible.sync="formVisible">
       <publish-article-form @submit="publish" @cancel="cancelForm"></publish-article-form>
@@ -20,6 +22,7 @@
 <script>
 import {publishArticle} from "../../api/article";
 import PublishArticleForm from "./PublishArticleForm";
+import {uploadImage} from "../../api/article";
 export default {
   name: "MarkDownEditor",
   components:{
@@ -56,6 +59,24 @@ export default {
       publishArticle(article).then(data=>{
         this.$router.push(`/articles/detail/${data.data.id}`)
       })
+    },
+    $imgAdd(pos, $file) {
+
+      console.log('image add')
+
+      console.log($file)
+      console.log(pos)
+
+      // 第一步.将图片上传到服务器.
+      let formData = new FormData();
+      formData.append('image', $file);
+      uploadImage(formData).then(data => {
+
+        this.$refs.md.$img2Url(pos, data.data);
+      })
+    },
+    $imgDel(pos) {
+      delete this.img_file[pos];
     }
   }
 

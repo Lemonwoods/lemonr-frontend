@@ -2,7 +2,7 @@
   <div class="le-home-header">
     <el-row>
       <!--    导航标签-->
-      <el-col :span=17>
+      <el-col :span=10 :offset="5">
         <el-menu :default-active="activeIndex"  mode="horizontal" @select="handleSelect">
           <el-menu-item index="1">首页</el-menu-item>
           <el-submenu index="2">
@@ -16,16 +16,16 @@
               <el-menu-item v-for="(tag, index) in tags" :key="tag.id" :index="'2-2-'+index">{{tag.tagName}}</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="3">热榜</el-menu-item>
+<!--          <el-menu-item index="3">热榜</el-menu-item>-->
           <el-menu-item index="4">消息</el-menu-item>
           <el-menu-item index="5">写文章</el-menu-item>
-          <el-menu-item index="6">
-            <el-input
-                placeholder="请输入内容"
-                prefix-icon="el-icon-search"
-                v-model="searchInput">
-            </el-input>
-          </el-menu-item>
+<!--          <el-menu-item index="6">-->
+<!--            <el-input-->
+<!--                placeholder="请输入内容"-->
+<!--                prefix-icon="el-icon-search"-->
+<!--                v-model="searchInput">-->
+<!--            </el-input>-->
+<!--          </el-menu-item>-->
         </el-menu>
       </el-col>
 

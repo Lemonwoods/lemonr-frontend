@@ -22,7 +22,7 @@ export function addComment(comment) {
 export function deleteComment(commentId) {
     return request({
         url: `/comments/${commentId}/remove`,
-        method: 'post',
+        method: 'delete',
         headers:{
             'Authorization':getToken()
         }

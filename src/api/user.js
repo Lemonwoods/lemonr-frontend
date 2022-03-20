@@ -4,7 +4,7 @@ import {getToken} from "../request/token";
 export function getUserInfoById(id) {
     return request({
         url: `/users/info/${id}`,
-        method: 'post',
+        method: 'get',
         headers:{
             'Authorization':getToken()
         },
@@ -14,7 +14,7 @@ export function getUserInfoById(id) {
 export function getCurrentUserInfo() {
     return request({
         url: '/users/info/current',
-        method: 'post',
+        method: 'get',
         headers:{
             'Authorization':getToken()
         }
@@ -39,7 +39,7 @@ export function followUser(id) {
 export function cancelFollowUser(id) {
     return request({
         url: `/users/cancelFollow/${id}`,
-        method: 'post'
+        method: 'delete'
     })
 }
 

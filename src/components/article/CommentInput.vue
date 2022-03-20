@@ -16,7 +16,7 @@ import {addComment} from "../../api/comment";
 export default {
   name: "CommentInput",
   props:{
-    id:{
+    propArticleId:{
       type:String
     }
   },
@@ -24,7 +24,7 @@ export default {
     return{
       comment:{
         content:'',
-        articleId:this.id,
+        articleId:this.propArticleId,
         fromUid:'',
         toUid:0,
         level:1,

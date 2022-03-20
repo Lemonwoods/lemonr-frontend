@@ -22,9 +22,9 @@
           {{userInfo.userDescription}}
         </div>
 
-        <div class="le-user-info-table-follow-and-fan-button">
-          <follow-and-fan-button :user-id="userId"></follow-and-fan-button>
-        </div>
+<!--        <div class="le-user-info-table-follow-and-fan-button">-->
+<!--          <follow-and-fan-button :user-id="userId"></follow-and-fan-button>-->
+<!--        </div>-->
 
         <div>
           <el-button round @click="chatWithCurrentUser">聊天</el-button>
@@ -36,12 +36,12 @@
 </template>
 
 <script>
-import FollowAndFanButton from "./FollowAndFanButton";
+// import FollowAndFanButton from "./FollowAndFanButton";
 import {getUserInfoById} from "../../api/user";
 export default {
   name: "UserInfoTable",
   components:{
-    FollowAndFanButton
+    // FollowAndFanButton
   },
   props:{
     userId:{
